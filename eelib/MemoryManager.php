@@ -14,7 +14,7 @@ namespace eelib
          * Returns the amount of memory, in bytes, that's currently being allocated to your PHP script.
          *
          * @link    http://php.net/manual/en/function.memory-get-usage.php
-         * @verson  PHP 5.2.1
+         * @since   PHP 5.2.1
          *
          * @param bool  $real_usage     Set this to TRUE to get total memory allocated from system,
          *                              including unused pages.
