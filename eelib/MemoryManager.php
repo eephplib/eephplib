@@ -16,11 +16,11 @@ namespace eelib
          * @link    http://php.net/manual/en/function.memory-get-usage.php
          * @since   PHP 5.2.1
          *
-         * @param bool  $real_usage     Set this to TRUE to get total memory allocated from system,
-         *                              including unused pages.
-         *                              If not set or FALSE only the used memory is reported.
+         * @param   bool    $real_usage     Set this to TRUE to get total memory allocated from system,
+         *                                  including unused pages.
+         *                                  If not set or FALSE only the used memory is reported.
          *
-         * @return int  Returns the memory amount in bytes.
+         * @return  int     Returns the memory amount in bytes.
          */
         public static function get_allocated_amount(bool $real_usage = FALSE) : int
         {
@@ -28,4 +28,3 @@ namespace eelib
         }
     }
 }
-
