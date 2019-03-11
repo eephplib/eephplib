@@ -2,13 +2,15 @@
 
 namespace eelib
 {
+    require_once 'Extended/ArrayList.php';
+
     /**
      * Class ArrayList
      *
      * @package eelib
-     * @version 2019.03.08
+     * @version 2019.03.11
      */
-    class ArrayList
+    class ArrayList extends \Extended\ArrayList
     {
         /**
          * Gets the first element of an array
