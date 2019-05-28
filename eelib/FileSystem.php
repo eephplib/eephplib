@@ -8,7 +8,7 @@ namespace eelib
      * @package eelib
      * @version 2019.03.04
      */
-    class FileSystem
+    class FileSystem extends \Extended\FileSystem
     {
         public static function cvs_file_to_assoc_array(string $filename, string $delimiter = ',') : array
         {}
