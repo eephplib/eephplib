@@ -5,5 +5,15 @@ eephplib is still in early Alpha.
 - Include Skyfire Libraries
 
 **Beta Completion:**
-- _Decision:_ Return NULL or throw exceptions for every method.
+- _Decision:_ Throw exceptions for methods that return false or nullables.
 - Include Unit Testing
+
+-----
+
+## ArrayList
+- first()
+- last()
+- firstKey()
+- lastKey()
+- differentValues()
+- sameValues()
