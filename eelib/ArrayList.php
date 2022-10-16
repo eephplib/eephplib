@@ -8,17 +8,12 @@ namespace eelib
      * Class ArrayList
      *
      * @package eelib
-     * @version 2019.03.11
+     * @version 2022.10.16
      */
     class ArrayList extends \Extended\ArrayList
     {
         /**
          * Gets the first element of an array
-         * Note: "??" (or null coalescing) operator requires PHP 7
-         *
-         * @since   PHP 7
-         *
-         * @param   array $array
          *
          * @return  mixed|null   Returns the first element of $array
          */
@@ -29,11 +24,6 @@ namespace eelib
 
         /**
          * Gets the last element of an array
-         * Note: "??" (or null coalescing) operator requires PHP 7
-         *
-         * @since   PHP 7
-         *
-         * @param   array $array
          *
          * @return  mixed|null   Returns the last element of $array
          */
@@ -45,14 +35,12 @@ namespace eelib
         /**
          * Get the first key of the given array
          * without affecting the internal array pointer.
+         * Returns the first key of array if the array is not empty; NULL otherwise.
          *
-         * @link    http://php.net/manual/en/function.array-key-first.php
-         * @since   PHP 4|7.3.0
-         *
-         * @param   array $array
-         * @return  mixed|null      Returns the first key of array if the array is not empty; NULL otherwise.
+         * @link http://php.net/manual/en/function.array-key-first.php
+         * @return  mixed|null      
          */
-        public static function first_key(array $array)
+        public static function firstKey(array $array) : array
         {
             if (\function_exists('array_key_first') === TRUE)
             {
@@ -64,15 +52,11 @@ namespace eelib
 
         /**
          * Get the last key of the given array without affecting the internal array pointer.
+         * Returns the last key of array if the array is not empty; NULL otherwise.
          *
-         * @link    http://php.net/manual/en/function.array-key-last.php
-         * @since   PHP 7|7.3.0
-         *
-         * @param array $array
-         *
-         * @return int|mixed|string|null    Returns the last key of array if the array is not empty; NULL otherwise.
+         * @link http://php.net/manual/en/function.array-key-last.php
          */
-        public static function last_key(array $array)
+        public static function lastKey(array $array) : array
         {
             if (\function_exists('array_key_first') === TRUE)
             {
@@ -80,6 +64,18 @@ namespace eelib
             }
 
             return \key(\array_slice($array, -1, 1, TRUE));
+        }
+        
+        // https://www.php.net/manual/en/function.array-diff.php - has no expectations
+        public static function differentValues(array $array, array ...$arrays) : array
+        {
+            return \array_diff($array, $arrays);
+        }
+        
+        // https://www.php.net/manual/en/function.array-intersect.php - has no expectations
+        public static function sameValues(array $array, array ...$arrays) : array
+        {
+            return \array_diff($array, $arrays);
         }
     }
 }
