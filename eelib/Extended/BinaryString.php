@@ -13,20 +13,24 @@ namespace Extended
          *
          * @link    http://php.net/manual/en/function.str-split.php
          *
-         * @param   string      $string
-         * @param   int         $split_length
-         * @param   null        $encoding
+         * @param   string        $string
+         * @param   int           $split_length
+         * @param   string|null   $encoding
          *
-         * @return  array|bool  If the optional split_length parameter is specified,
-         *                      the returned array will be broken down into chunks with
-         *                      each being split_length in length,
-         *                      otherwise each chunk will be one character in length.
+         * @return  array|bool      If the optional split_length parameter is specified,
+         *                          the returned array will be broken down into chunks with
+         *                          each being split_length in length,
+         *                          otherwise each chunk will be one character in length.
          *
-         *                      ELSE is returned if split_length is less than 1.
-         *                      If the split_length length exceeds the length of string,
-         *                      the entire string is returned as the first (and only) array element.
+         *                          ELSE is returned if split_length is less than 1.
+         *                          If the split_length length exceeds the length of string,
+         *                          the entire string is returned as the first (and only) array element.
          */
-        public static function split($string, $split_length = 1, $encoding = NULL)
+        public static function split(
+            string  $string,
+            int     $split_length = 1,
+            string  $encoding = NULL
+        ) : array
         {
             if (\is_null($encoding))
             {
