@@ -2,6 +2,9 @@
 
 namespace eelib
 {
+
+    use function \property_exists;
+
     class StandardClass
     {
         /**
