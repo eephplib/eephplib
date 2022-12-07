@@ -5,7 +5,9 @@ namespace eelib
 
     use function \property_exists;
 
-    class StandardClass
+    require_once 'Extended/StandardClass.php';
+
+    class StandardClass extends \Extended\StandardClass
     {
         /**
          * Checks if the object or class has a property.
