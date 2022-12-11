@@ -12,6 +12,12 @@ namespace eelib
      */
     class ArrayList extends \Extended\ArrayList
     {
+        public ArraySort $sort;
+
+        public function __construct()
+        {
+            $this->sort = new ArraySort;
+        }
         /**
          * Gets the first element of an array
          *
@@ -40,7 +46,7 @@ namespace eelib
          * @link http://php.net/manual/en/function.array-key-first.php
          * @return  mixed|null      
          */
-        public static function firstKey(array $array) : array
+        public static function firstKey(array $array) : ?array
         {
             if (\function_exists('array_key_first') === TRUE)
             {
