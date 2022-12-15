@@ -20,6 +20,6 @@ eephplib is still in early Alpha.
 
 ## Programmatic Principles
 - Methods are CamcelCase
--- Therefore, all original snake-case functions are rewritten into CamcelCase Methods
+  - Therefore, all original snake-case functions are rewritten into CamcelCase Methods
 - Method Paremters are lowercase and snake-case (following C, C++, and the PHP constant design)
 - Methods will never return a NULL type
