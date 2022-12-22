@@ -4,6 +4,13 @@ namespace eelib
 {
     use RuntimeException;
 
+    use function \strspn     as strspn;
+    use function \strcspn    as strcspn;
+    use function \strcmp     as strcmp;
+    use function \strcasecmp as strcasecmp;
+    use function \strncmp    as strncmp;
+    use function \ucwords    as ucwords;
+
     require_once 'Extended/BinaryString.php';
 
     /**
@@ -86,5 +93,13 @@ namespace eelib
 
             return strtr($string, $from, $to);
         }
+
+        public static function substr() {}
+        public static function strlen() {}
+        public static function str_replace() {}
+        public static function trim() {}
+        public static function strpos() {}
+        public static function strtolower() {}
+        public static function strtoupper() {}
     }
 }
