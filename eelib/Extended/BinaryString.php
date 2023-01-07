@@ -2,6 +2,9 @@
 
 namespace Extended
 {
+    require_once 'BinaryString/SearchStringAllocator.php';
+
+    use eelib\Functions\BinaryString\Extended\SearchStringAllocator;
     /**
      * Class BinaryString Extended
      * Custom User Functions
