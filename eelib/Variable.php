@@ -26,5 +26,24 @@ namespace eelib
         {
             return empty($var);
         }
+
+        /**
+         * https://www.php.net/manual/en/function.is-string.php
+         *
+         * @param $value
+         *
+         * @return bool
+         */
+        public static function isString($value) : bool
+        {
+            return is_string($value);
+        }
+
+        // is_float()   https://www.php.net/manual/en/function.is-float.php
+        // is_int()     https://www.php.net/manual/en/function.is-int.php
+        // is_bool()    https://www.php.net/manual/en/function.is-bool.php
+        // is_object()  https://www.php.net/manual/en/function.is-object.php
+        // is_array()   https://www.php.net/manual/en/function.is-array.php
+
     }
 }

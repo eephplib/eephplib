@@ -27,11 +27,30 @@ namespace eelib
          * @param   array   $array  The input array to sort.
          * @param   int     $flags  The optional second parameter flags may be used to modify the sorting behavior.
          *
-         * @return  array           Returns the an array in ascending order.
+         * @return  array           Returns the array in ascending order.
          */
         public static function ascending_sort(array $array, int $flags = self::REGULAR): array
         {
             sort($array, $flags);
+
+            return $array;
+        }
+
+        /**
+         * Sorts array in place by keys in ascending order.
+         *
+         * @link    https://www.php.net/manual/en/function.ksort.php
+         * @see     https://www.w3schools.com/php/func_array_ksort.asp
+         * @see     https://www.geeksforgeeks.org/php-ksort-function/
+         *
+         * @param   array   $array  The input array to sort.
+         * @param   int     $flags  The optional second parameter flags may be used to modify the sorting behavior.
+         *
+         * @return  array           Returns the array in ascending order.
+         */
+        public static function ascending_sort_from_key(array $array, int $flags = self::REGULAR): array
+        {
+            ksort($array, $flags);
 
             return $array;
         }
