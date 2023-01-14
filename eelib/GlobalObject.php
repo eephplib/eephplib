@@ -2,6 +2,9 @@
 
 namespace eelib
 {
+    /**
+     * @link https://www.php.net/manual/en/reserved.variables.globals.php
+     */
     final class GlobalObject
     {
         public static function get($object_name)
@@ -19,6 +22,11 @@ namespace eelib
             }
 
             return $object;
+        }
+
+        public static function getAll() : array
+        {
+            return $GLOBALS;
         }
     }
 }
