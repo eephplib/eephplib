@@ -4,6 +4,8 @@
 namespace eelib
 {
     use function \empty;
+    use function \is_string;
+    use function \is_float;
 
     class Variable
     {
@@ -20,7 +22,7 @@ namespace eelib
          * @return  bool            Returns true if var does not exist or
          *                          has a value that is empty or equal to zero,
          *                          known as false-like; see conversion to boolean.
-         *                          Otherwise returns false.
+         *                          Otherwise, returns false.
          */
         public static function isEmpty($var) : bool
         {
@@ -39,7 +41,18 @@ namespace eelib
             return is_string($value);
         }
 
-        // is_float()   https://www.php.net/manual/en/function.is-float.php
+        /**
+         * https://www.php.net/manual/en/function.is-float.php
+         *
+         * @param $value
+         *
+         * @return bool
+         */
+        public static function isFloat($value) : bool
+        {
+            return is_float($value);
+        }
+
         // is_int()     https://www.php.net/manual/en/function.is-int.php
         // is_bool()    https://www.php.net/manual/en/function.is-bool.php
         // is_object()  https://www.php.net/manual/en/function.is-object.php
