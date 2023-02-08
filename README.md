@@ -8,6 +8,7 @@ eephplib is still in early Alpha.
 **Beta Completion:**
 - _Decision:_ Throw exceptions for methods that return false or nullables.
 - Include PHP Core Functions for: [Math](https://www.php.net/manual/en/book.math.php), [BC Math](https://www.php.net/manual/en/book.bc.php), [Filesystem](https://www.php.net/manual/en/book.filesystem.php), [Sessions](https://www.php.net/manual/en/ref.session.php), [Functions](https://www.php.net/manual/en/book.funchand.php), [Filtering & Character Type Checking](https://www.php.net/manual/en/book.ctype.php) _(Open for discussion)_
+- Regular Expressions: `$regex = new RegEx("/^foo.*/")->match('...')`
 - Include Unit Testing
 
 -----
