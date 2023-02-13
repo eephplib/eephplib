@@ -7,6 +7,7 @@ namespace eelib
     use function \is_string;
     use function \is_float;
     use function \is_int;
+    use function \is_bool;
 
     class Variable
     {
@@ -66,7 +67,18 @@ namespace eelib
             return is_int($value);
         }
 
-        // is_bool()    https://www.php.net/manual/en/function.is-bool.php
+        /**
+         * https://www.php.net/manual/en/function.is-bool.php
+         *
+         * @param $value
+         *
+         * @return bool
+         */
+        public static function isBoolean($value) : bool
+        {
+            return is_bool($value);
+        }
+
         // is_object()  https://www.php.net/manual/en/function.is-object.php
         // is_array()   https://www.php.net/manual/en/function.is-array.php
 
