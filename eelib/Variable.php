@@ -32,11 +32,14 @@ namespace eelib
         }
 
         /**
+         * Finds whether the type of the given variable is string.
+         *
          * https://www.php.net/manual/en/function.is-string.php
          *
-         * @param $value
+         * @param mixed $value  The variable being evaluated.
          *
-         * @return bool
+         * @return bool         Returns true if value is of type string, false otherwise.
+
          */
         public static function isString($value) : bool
         {
