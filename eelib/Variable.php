@@ -9,6 +9,7 @@ namespace eelib
     use function \is_int;
     use function \is_bool;
     use function \is_object;
+    use function \is_array;
 
     class Variable
     {
@@ -95,8 +96,17 @@ namespace eelib
             return is_object($value);
         }
 
+        /**
+         * https://www.php.net/manual/en/function.is-array.php
 
-        // is_array()   https://www.php.net/manual/en/function.is-array.php
-
+         *
+         * @param $value
+         *
+         * @return bool
+         */
+        public static function isArray($value) : bool
+        {
+            return is_array($value);
+        }
     }
 }
