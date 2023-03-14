@@ -29,20 +29,20 @@ namespace eelib
         }
 
         /**
-         *  Validating integer value from string
+         *  Validating IP address value from string
          *
          * @param   string  $ip_address
          * @param   int     $options
          *
          * @return  mixed
          */
-        public static function validateEmail(string $ip_address, int $options = 0)
+        public static function validateIP(string $ip_address, int $options = 0)
         {
-            return filter_var($email, self::VALIDATE_IP, $options);
+            return filter_var($ip_address, self::VALIDATE_IP, $options);
         }
 
         /**
-         * Validating an integer value
+         * Validating integer value
          *
          * @see https://www.w3schools.com/php/filter_validate_int.asp
          * @see https://www.php.net/manual/en/filter.filters.validate.php
