@@ -11,7 +11,52 @@ namespace eelib
     use function \is_object;
     use function \is_array;
 
-    class Variable
+    class ExtendedStrictType
+    {
+        public static function isStdClass(mixed $arg): bool
+        {
+            return $arg instanceof \stdClass;
+        }
+
+
+        public static function isObjectOfClass(string $class, object $object): bool
+        {
+            return $object instanceof $class;
+        }
+
+        public static function validateNotString(mixed  $value): void
+        {
+            if (is_string( $value)) {
+                throw new \Exception('value type is not a string');
+            }
+        }
+
+        public static function validateNotNull(mixed $value): void
+        {
+            if ($value === null) {
+                throw new \Exception('value type is not a null');
+            }
+        }
+    }
+
+    /**
+     * Type-checking functions #
+    is_array()
+    is_bool()
+    is_callable()
+    is_float() / is_double() / is_real()
+    is_int() / is_integer() / is_long()
+    is_numeric()
+    is_iterable()
+    is_null()
+    is_object()
+    is_resource()
+    is_scalar()
+    is_string()
+    is_subclass_of()
+    is_a()
+     */
+    class StrictType extends ExtendedStrictType
     {
         /**
          * Determine whether a variable is considered to be empty.
