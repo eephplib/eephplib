@@ -33,7 +33,7 @@ namespace Extended
             string  $string,
             int     $split_length = 1,
             string  $encoding = NULL
-        ) : array
+        ) : array|bool
         {
             if (\is_null($encoding))
             {
