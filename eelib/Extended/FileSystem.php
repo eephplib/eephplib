@@ -40,5 +40,27 @@ namespace Extended
 
             return $files;
         }
+
+        /**
+         * Convert file sizes to a human-readable string format.
+         *
+         * @link    https://stackoverflow.com/questions/15188033/human-readable-file-size/28047922#28047922
+         * @param   int $size
+         * @param   int $precision
+         *
+         * @return string
+         */
+        public static function formatBytes(int $size, int $precision = 1): string
+        {
+            $unitSuffixList = ['', 'KB', 'MB', 'GB', 'TB'];
+            $exponent       = floor(log($size, 1024));
+            $calculation    = round($size / (1024 ** $exponent), $precision);
+
+            return \implode(' ', [$calculation, $unitSuffixList[$exponent]]);
+        }
     }
+
+    # FileSystem::formatBytes(2048, 2); // 2KB
+    # FileSystem::formatBytes(2048, 20_000_000); // 19.07KB
+    # FileSystem::formatBytes(2048, 20_000_000_000); // 18.63
 }
