@@ -2,13 +2,15 @@
 
 namespace eelib
 {
+    use function file_exists;
+
     /**
      * Class FileSystem
      *
      * @package eelib
-     * @version 2019.03.04
+     * @version 2023.06.14
      */
-    class FileSystem extends \Extended\FileSystem
+    class FileSystem extends \Extended\FileSystem implements \eelib\CollectiveContract\Exists
     {
         public static function cvs_file_to_assoc_array(string $filename, string $delimiter = ',') : array
         {}
@@ -25,7 +27,7 @@ namespace eelib
          */
         public static function exists(string $filename) : bool
         {
-            return \file_exists($filename);
+            return file_exists($filename);
         }
     }
 }
