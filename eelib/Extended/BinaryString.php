@@ -55,6 +55,20 @@ namespace Extended
 
             return $return_value;
         }
+
+        /**
+         * Checks if enter string is a hexadecimal color code by W3C standard.
+         *
+         * @param string $colorCode
+         *
+         * @return bool
+         */
+        final public static function isColorHex(string $colorCode): bool
+        {
+            $colorCode = ltrim($colorCode, '#');
+
+            return \ctype_xdigit($colorCode) && (\strlen($colorCode) === 6 || \strlen($colorCode) === 3);
+        }
     }
 }
 
