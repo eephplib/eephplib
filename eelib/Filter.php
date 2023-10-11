@@ -11,9 +11,9 @@ namespace eelib
 
     class Filter
     {
-        const VALIDATE_EMAIL = \FILTER_VALIDATE_EMAIL; // Validating email addresses
-        const VALIDATE_IP    = \FILTER_VALIDATE_IP; // Validating IP addresses
-        const VALIDATE_INT   = \FILTER_VALIDATE_INT; // Validating integer value from string
+        public const VALIDATE_EMAIL = \FILTER_VALIDATE_EMAIL; // Validating email addresses
+        public const VALIDATE_IP    = \FILTER_VALIDATE_IP; // Validating IP addresses
+        public const VALIDATE_INT   = \FILTER_VALIDATE_INT; // Validating integer value from string
 
         /**
          * @see https://www.w3schools.com/php/filter_validate_email.asp
@@ -23,7 +23,7 @@ namespace eelib
          *
          * @return  mixed
          */
-        public static function validateEmail(string $email, int $options = 0)
+        final public static function validateEmail(string $email, int $options = 0)
         {
             return filter_var($email, self::VALIDATE_EMAIL, $options);
         }
@@ -36,7 +36,7 @@ namespace eelib
          *
          * @return  mixed
          */
-        public static function validateIP(string $ip_address, int $options = 0)
+        final public static function validateIP(string $ip_address, int $options = 0)
         {
             return filter_var($ip_address, self::VALIDATE_IP, $options);
         }
@@ -54,7 +54,7 @@ namespace eelib
          *
          * @return  mixed
          */
-        public static function validateInteger(string|int|float $integer, int $options = 0)
+        final public static function validateInteger(string|int|float $integer, int $options = 0)
         {
             return filter_var($integer, self::VALIDATE_INT, $options);
         }
