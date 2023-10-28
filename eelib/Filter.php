@@ -11,9 +11,28 @@ namespace eelib
 
     class Filter
     {
-        public const VALIDATE_EMAIL = \FILTER_VALIDATE_EMAIL; // Validating email addresses
-        public const VALIDATE_IP    = \FILTER_VALIDATE_IP; // Validating IP addresses
-        public const VALIDATE_INT   = \FILTER_VALIDATE_INT; // Validating integer value from string
+        // Validation filters: https://www.php.net/manual/en/filter.filters.validate.php
+        public const VALIDATE_EMAIL          = \FILTER_VALIDATE_EMAIL; // Validating email addresses
+        public const VALIDATE_IP             = \FILTER_VALIDATE_IP;   // Validating IP addresses
+        public const VALIDATE_INT            = \FILTER_VALIDATE_INT;  // Validating integer value from string
+        public const FILTER_VALIDATE_BOOLEAN = \FILTER_VALIDATE_BOOLEAN;
+        public const FILTER_VALIDATE_DOMAIN  = \FILTER_VALIDATE_DOMAIN;
+        public const FILTER_VALIDATE_FLOAT   = \FILTER_VALIDATE_FLOAT;
+        public const FILTER_VALIDATE_MAC     = \FILTER_VALIDATE_MAC;
+        public const FILTER_VALIDATE_URL     = \FILTER_VALIDATE_URL;
+
+        // Sanitize filters: https://www.php.net/manual/en/filter.filters.sanitize.php
+        public const FILTER_SANITIZE_EMAIL              = \FILTER_SANITIZE_EMAIL;
+        public const FILTER_SANITIZE_ENCODED            = \FILTER_SANITIZE_ENCODED;
+        public const FILTER_SANITIZE_ADD_SLASHES        = \FILTER_SANITIZE_ADD_SLASHES;
+        public const FILTER_SANITIZE_NUMBER_FLOAT       = \FILTER_SANITIZE_NUMBER_FLOAT;
+        public const FILTER_SANITIZE_NUMBER_INT         = \FILTER_SANITIZE_NUMBER_INT;
+        public const FILTER_SANITIZE_SPECIAL_CHARS      = \FILTER_SANITIZE_SPECIAL_CHARS;
+        public const FILTER_SANITIZE_FULL_SPECIAL_CHARS = \FILTER_SANITIZE_FULL_SPECIAL_CHARS;
+        public const FILTER_SANITIZE_STRING             = \FILTER_SANITIZE_STRING;
+        public const FILTER_SANITIZE_STRIPPED           = \FILTER_SANITIZE_STRIPPED;
+        public const FILTER_SANITIZE_URL                = \FILTER_SANITIZE_URL;
+        public const FILTER_UNSAFE_RAW                  = \FILTER_UNSAFE_RAW;
 
         /**
          * @see https://www.w3schools.com/php/filter_validate_email.asp
@@ -46,7 +65,7 @@ namespace eelib
          *
          * @see https://www.w3schools.com/php/filter_validate_int.asp
          * @see https://www.php.net/manual/en/filter.filters.validate.php
-         * #see https://www.tutorialspoint.com/filter-validate-int-constant-in-php
+         * @see https://www.tutorialspoint.com/filter-validate-int-constant-in-php
          * @see https://www.plus2net.com/php_tutorial/filter_validate_int.php
          *
          * @param   string|int|float    $integer
