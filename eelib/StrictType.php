@@ -19,10 +19,30 @@ namespace eelib
         }
 
 
-        public static function isObjectOfClass(string $class, object $object): bool
+        public static function isObjectOfClass(object $object, string $class): bool
         {
             return $object instanceof $class;
         }
+
+        public static function isObjectOfClassList(object $object, array $classList): bool
+        {
+            foreach ($classList as $className)
+            {
+                \assert(
+                    assertion:   \is_string($className),
+                    description: 'Element within $classList array is not a class name string.'
+                );
+
+                if ($object instanceof $className)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        // Test
+        // if (!isObjectOfClassList($entity, ['User','Order','Product']));
 
         public static function validateNotString(mixed  $value): void
         {
