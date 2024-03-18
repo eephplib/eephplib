@@ -2,6 +2,12 @@
 
 namespace eelib\Functions\BinaryString\Extended
 {
+    use function \array_filter;
+    use function \explode;
+    use function \str_replace;
+    use function \strlen;
+    use function \strtolower;
+    use function \trim;
     // TODO: This needs to be tested.
     trait SearchStringAllocator
     {
@@ -22,12 +28,14 @@ namespace eelib\Functions\BinaryString\Extended
 
                 $search_string   = str_replace($removals, ' ', $search_string);
                 $search_keywords = explode(' ', $search_string);
-                $keywords        = array_filter($search_keywords, static function ($data) use ($safe_length)
+                $keywords        = array_filter(array:    $search_keywords,
+                                                callback: static function ($data) use ($safe_length)
                 {
                     if (strlen($data) >= $safe_length)
                     {
                         return $data;
                     }
+                    // TODO: what is teh default return (avoid null)?
                 });
 
                 return array_values($keywords);

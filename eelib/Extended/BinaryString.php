@@ -3,7 +3,9 @@
 namespace Extended
 {
     require_once 'BinaryString/SearchStringAllocator.php';
+    require_once 'BinaryString/SearchStringAllocator.php';
 
+    use eelib\Functions\BinaryString\Extended\IsEqual;
     use eelib\Functions\BinaryString\Extended\SearchStringAllocator;
     /**
      * Class BinaryString Extended
@@ -11,6 +13,9 @@ namespace Extended
      */
     class BinaryString
     {
+        use IsEqual;
+        use SearchStringAllocator;
+
         /**
          * Convert a multibyte string to an array.
          *
@@ -65,7 +70,7 @@ namespace Extended
          */
         final public static function isColorHex(string $colorCode): bool
         {
-            $colorCode = ltrim($colorCode, '#');
+            $colorCode = \ltrim($colorCode, '#');
 
             return \ctype_xdigit($colorCode) && (\strlen($colorCode) === 6 || \strlen($colorCode) === 3);
         }
