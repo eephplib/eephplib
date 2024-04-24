@@ -3,6 +3,9 @@
 
 namespace Extended
 {
+
+    use eelib\Exception\PathNotFoundException;
+
     /**
      * TODO: turn methods into traits
      *
@@ -11,16 +14,16 @@ namespace Extended
      */
     class FileSystem
     {
-        public static function getFiles($path, &$files = array())
+        public static function listFiles($path, &$files = []): array
         {
             if (!is_dir($path))
             {
-                return null; // TODO: no nullpointing -> throw exception
+                throw new PathNotFoundException($path.' Path not found.')
             }
 
             $handle = opendir($path);
 
-            while (($file = readdir($handle)) !== false)
+            while (($file = readdir($handle)) !== FALSE)
             {
                 if ($file !== '.' && $file !== '..')
                 {
@@ -31,7 +34,7 @@ namespace Extended
                     {
                         self::{__FUNCTION__}($path2, $files);
                     }
-                    elseif ( preg_match( "/\.(php|php5)$/i" , $file ) )
+                    elseif (preg_match("/\.(php|php5)$/i" , $file))
                     {
                         $files[] = $path2;
                     }
