@@ -1,10 +1,21 @@
 <?php
 
-
 namespace Extended
 {
-
     use eelib\Exception\PathNotFoundException;
+
+    use function file_get_contents;
+    use function floor;
+    use function implode;
+    use function is_dir;
+    use function log;
+    use function opendir;
+    use function preg_match;
+    use function readdir;
+    use function round;
+
+    use const __FUNCTION__;
+    use const FILE_USE_INCLUDE_PATH;
 
     /**
      * TODO: turn methods into traits
@@ -14,11 +25,13 @@ namespace Extended
      */
     class FileSystem
     {
+        public const USE_INCLUDE_PATH = FILE_USE_INCLUDE_PATH;
+
         public static function listFiles($path, &$files = []): array
         {
             if (!is_dir($path))
             {
-                throw new PathNotFoundException($path.' Path not found.')
+                throw new PathNotFoundException($path.' Path not found.');
             }
 
             $handle = opendir($path);
@@ -59,10 +72,43 @@ namespace Extended
             $exponent       = floor(log($size, 1024));
             $calculation    = round($size / (1024 ** $exponent), $precision);
 
-            return \implode(' ', [$calculation, $unitSuffixList[$exponent]]);
+            return implode(' ', [$calculation, $unitSuffixList[$exponent]]);
         }
-    }
 
+
+        public static function getContents(
+            string $filename,
+            bool   $use_include_path = self::USE_INCLUDE_PATH,
+            int    $offset           = 0,
+            int    $length           = null
+        ):  string
+        {
+            return file_get_contents(
+                filename:         $filename,
+                use_include_path: $use_include_path,
+                offset:           $offset,
+                length:           $length
+            ) ?? '';
+        }
+
+        // public static function putContents() { file_put_contents(); }
+
+
+        /**
+         * @example https://twitter.com/lyrixx/status/1782797491705938032/
+         *
+         * @throws \RuntimeException When the filename cannot be opened
+         * @throws \LogicException   When the filename is a directory
+         */
+        public static function parseCsvFile(string $filename): \SplFileObject
+        {
+            $csvFile = new \SplFileObject($filename);
+            $csvFile->setFlags(\SplFileObject::READ_CSV);
+
+            return $csvFile;
+        }
+
+}
     # FileSystem::formatBytes(2048, 2); // 2KB
     # FileSystem::formatBytes(2048, 20_000_000); // 19.07KB
     # FileSystem::formatBytes(2048, 20_000_000_000); // 18.63
