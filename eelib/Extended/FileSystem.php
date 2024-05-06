@@ -2,6 +2,8 @@
 
 namespace Extended
 {
+    require_once 'FileSystem/ParseCsvFile.php';
+
     use eelib\Exception\PathNotFoundException;
 
     use function file_get_contents;
@@ -25,6 +27,8 @@ namespace Extended
      */
     class FileSystem
     {
+        use \eelib\Functions\FileSystem\Extended\ParseCsvFile;
+
         public const USE_INCLUDE_PATH = FILE_USE_INCLUDE_PATH;
 
         public static function listFiles($path, &$files = []): array
@@ -92,21 +96,6 @@ namespace Extended
         }
 
         // public static function putContents() { file_put_contents(); }
-
-
-        /**
-         * @example https://twitter.com/lyrixx/status/1782797491705938032/
-         *
-         * @throws \RuntimeException When the filename cannot be opened
-         * @throws \LogicException   When the filename is a directory
-         */
-        public static function parseCsvFile(string $filename): \SplFileObject
-        {
-            $csvFile = new \SplFileObject($filename);
-            $csvFile->setFlags(\SplFileObject::READ_CSV);
-
-            return $csvFile;
-        }
 
 }
     # FileSystem::formatBytes(2048, 2); // 2KB
