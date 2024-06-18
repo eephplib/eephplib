@@ -1,0 +1,47 @@
+{
+    "name": "eephplib/eephplib",
+    "description": "Extensive Expressive PHP Library",
+    "homepage": "https://github.com/eephplib",
+    "type": "library",
+    "keywords": [
+        "datatypes",
+        "structures"
+    ],
+    "license": "GNU General Public License v3.0",
+    "support": {
+        "issues": "https://github.com/eephplib/eephplib/issues",
+        "security": "https://github.com/eephplib/eephplib/security/policy"
+    },
+    "authors": [
+        {
+            "name": "Traaf Lee",
+            "email": "travis.font@aol.com",
+            "role": "lead"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "phpunit/phpunit": "^11.1"
+    },
+    "autoload": {
+        "classmap": [
+            "eelib/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "8.2"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
