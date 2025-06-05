@@ -2,8 +2,8 @@
 
 namespace Extended
 {
-    use function array_map;
-    use function array_merge;
+    require_once 'ArrayList/Push.php';
+
     use function func_get_args;
     use function is_array;
 
@@ -13,24 +13,7 @@ namespace Extended
      */
     class ArrayList
     {
-        /**
-         * Push one or more elements onto the end of array
-         *
-         * @link    http://php.net/manual/en/function.array-push.php
-         *
-         * @param   $array
-         * @param   $values
-         *
-         * @return  array   Returns the updated array with the new element.
-         */
-        public static function push($array, $values): array
-        {
-            $args = func_get_args();
-
-            unset($args[0]);
-
-            return array_merge($array, $args);
-        }
+        use \eelib\Functions\ArrayList\Extended\Push;
 
         /**
          * Push one or more elements onto the end of array with the associated key.
