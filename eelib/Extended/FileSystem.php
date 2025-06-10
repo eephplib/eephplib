@@ -3,6 +3,7 @@
 namespace Extended
 {
     require_once 'FileSystem/ParseCsvFile.php';
+    require_once 'FileSystem/CsvFileToAssocArray.php';
 
     use eelib\Exception\PathNotFoundException;
 
@@ -96,6 +97,28 @@ namespace Extended
         }
 
         // public static function putContents() { file_put_contents(); }
+
+        /**
+         * Resolves the canonical absolute path  (no symlinks) of the current script's director:
+         * - Expanding all symbolic links (e.g., /var/www → /home/user/project if linked).
+         * - Converting relative path components (./ or ../) to their absolute form.
+         * - Removing extra slashes (/var///www → /var/www).
+         *
+         * Practical Use Cases:
+         * - Security-sensitive operations (avoid path traversal via symlinks).
+         * - File comparisons (ensure two paths point to the same physical location).
+         * - Working with includes/requires (if symlinks might affect paths).
+         *
+         */
+        function getCanonicalAbsolutePath(string $directory) // MUST BE __FILE__
+        {
+            if (strpos($directory, __DIR__) !== 0) // do not without tests (IDE will suggest new function)
+            {
+                throw new InvalidArgumentException("Must start with or be __DIR__ ");
+            }
+
+            return realpath($directory) ?: throw new Exception("Directory path does not exist");
+        }
 
 }
     # FileSystem::formatBytes(2048, 2); // 2KB
