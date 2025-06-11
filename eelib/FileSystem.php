@@ -2,7 +2,9 @@
 
 namespace eelib
 {
-    use function file_exists;
+    use function \file_exists;
+
+    require_once 'Extended/FileSystem.php';
 
     /**
      * Class FileSystem
@@ -12,8 +14,15 @@ namespace eelib
      */
     class FileSystem extends \Extended\FileSystem implements \eelib\CollectiveContract\Exists
     {
-        public static function cvs_file_to_assoc_array(string $filename, string $delimiter = ',') : array
-        {}
+
+        /**
+         * @throws \Exception
+         */
+        function getCurrentWorkingDirectory()
+        {
+            // this might need to be a parameter (requires testing for confirmation)
+            return getcwd() ?: throw new \Exception("getcwd() returned false and NOT <string>");
+        }
 
         /**
          * Checks whether a file or directory exists.
@@ -21,7 +30,7 @@ namespace eelib
          * @link    http://php.net/manual/en/function.file-exists.php
          * @since   PHP 4
          *
-         * @param   string  $filename   Path to the file or directory.
+         * @param   string  $filename Path to the file or directory.
          *
          * @return  bool    Returns TRUE if the file or directory specified by filename exists; FALSE otherwise.
          */
