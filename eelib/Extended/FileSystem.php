@@ -4,20 +4,14 @@ namespace Extended
 {
     require_once 'FileSystem/ParseCsvFile.php';
     require_once 'FileSystem/CsvFileToAssocArray.php';
-
-    use eelib\Exception\PathNotFoundException;
+    require_once 'FileSystem/ScanDirectory.php';
 
     use function file_get_contents;
     use function floor;
     use function implode;
-    use function is_dir;
     use function log;
-    use function opendir;
-    use function preg_match;
-    use function readdir;
     use function round;
 
-    use const __FUNCTION__;
     use const FILE_USE_INCLUDE_PATH;
 
     /**
@@ -29,38 +23,10 @@ namespace Extended
     class FileSystem
     {
         use \eelib\Functions\FileSystem\Extended\ParseCsvFile;
+        use \eelib\Functions\FileSystem\Extended\ScanDirectory;
 
         public const USE_INCLUDE_PATH = FILE_USE_INCLUDE_PATH;
 
-        public static function listFiles($path, &$files = []): array
-        {
-            if (!is_dir($path))
-            {
-                throw new PathNotFoundException($path.' Path not found.');
-            }
-
-            $handle = opendir($path);
-
-            while (($file = readdir($handle)) !== FALSE)
-            {
-                if ($file !== '.' && $file !== '..')
-                {
-                    // TODO: add proper concatenation
-                    $path2 = $path.'/'.$file;
-
-                    if (is_dir($path2))
-                    {
-                        self::{__FUNCTION__}($path2, $files);
-                    }
-                    elseif (preg_match("/\.(php|php5)$/i" , $file))
-                    {
-                        $files[] = $path2;
-                    }
-                }
-            }
-
-            return $files;
-        }
 
         /**
          * Convert file sizes to a human-readable string format.
