@@ -1,4 +1,5 @@
 # eephplib
+
 eephplib is still in early Alpha.
 
 **Alpha Completion:**
@@ -13,13 +14,7 @@ eephplib is still in early Alpha.
 
 -----
 
-## ArrayList
-- first()
-- last()
-- firstKey()
-- lastKey()
-- differentValues()
-- sameValues()
+- **ArrayList**
 
 ## Programmatic Principles
 - Methods are CamcelCase
