@@ -14,7 +14,7 @@ eephplib is still in early Alpha.
 
 -----
 
-- **ArrayList**
+- [**ArrayList**](/documentation/ArrayList.md)
 
 ## Programmatic Principles
 - Methods are CamcelCase
