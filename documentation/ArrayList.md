@@ -1,18 +1,18 @@
 # ArrayList
 
 - [**first()**](#arraylistfirst)
-- [**last()**](#ArrayList::last)
-- [**firstKey()**](#ArrayList::firstkey)
-- [**lastKey()**](#ArrayList::lastkey)
-- [**differentValues()**](#ArrayList::differentvalues)
-- [**sameValues()**](#ArrayList::samevalues)
-- [**findValue()**](#ArrayList::findvalue)
-- [**reindexValues()**](#ArrayList::reindexvalues)
+- [**last()**](#arraylistlast)
+- [**firstKey()**](#arraylistfirstkey)
+- [**lastKey()**](#arraylistlastkey)
+- [**differentValues()**](#arraylistdifferentvalues)
+- [**sameValues()**](#arraylistsamevalues)
+- [**findValue()**](#arraylistfindvalue)
+- [**reindexValues()**](#arraylistreindexvalues)
 
 **Extended**
 
-- [**push()**](#push)
-- [**pushAssociative()**](#pushassociative)
+- [**push()**](##arraylistpush)
+- [**pushAssociative()**](#arraylistpushassociative)
 
 ----
 
