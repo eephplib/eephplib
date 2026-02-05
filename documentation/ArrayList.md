@@ -1,6 +1,6 @@
 # ArrayList
 
-- [**first()**](#ArrayList::first)
+- [**first()**](#arraylistfirst)
 - [**last()**](#ArrayList::last)
 - [**firstKey()**](#ArrayList::firstkey)
 - [**lastKey()**](#ArrayList::lastkey)
