@@ -24,17 +24,17 @@ namespace eelib
     //$GuardClauses = new GuardClauses;
     //$GuardClauses->ArgumentException::ThrowIfNullOrEmpty($string, $string1);
 
-    ArgumentException::ThrowIfNullOrEmpty($string, $string1);
-    ArgumentException::ThrowIfNullOrWhiteSpace($string, $string1);
+    //ArgumentException::ThrowIfNullOrEmpty($string, $string1);
+    //ArgumentException::ThrowIfNullOrWhiteSpace($string, $string1);
 
-    ArgumentOutOfRangeException::ThrowIfZero($string);
-    ArgumentOutOfRangeException::ThrowIfNegative($string);
-    ArgumentOutOfRangeException::ThrowIfNegativeOrZero($string);
-    ArgumentOutOfRangeException::ThrowIfLessThanOrEqual($string, $value);
-    ArgumentOutOfRangeException::ThrowIfLessThan($string, $value);
-    ArgumentOutOfRangeException::ThrowIfGreaterThan($string, $value);
-    ArgumentOutOfRangeException::ThrowIfGreaterThanOrEqual($string, $value);
-    ArgumentOutOfRangeException::ThrowIfEqual($string, $value);
-    ArgumentOutOfRangeException::ThrowIfNotEqual($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfZero($string);
+    //ArgumentOutOfRangeException::ThrowIfNegative($string);
+    //ArgumentOutOfRangeException::ThrowIfNegativeOrZero($string);
+    //ArgumentOutOfRangeException::ThrowIfLessThanOrEqual($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfLessThan($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfGreaterThan($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfGreaterThanOrEqual($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfEqual($string, $value);
+    //ArgumentOutOfRangeException::ThrowIfNotEqual($string, $value);
 }
 
