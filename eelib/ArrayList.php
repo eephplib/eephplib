@@ -78,7 +78,7 @@ namespace eelib
          *
          * @link http://php.net/manual/en/function.array-key-last.php
          */
-        public static function lastKey(array $array) : int|string
+        public static function lastKey(array $array) : int|string|null
         {
             if (function_exists('array_key_first') === TRUE)
             {
