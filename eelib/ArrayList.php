@@ -7,6 +7,7 @@ namespace eelib
 {
 
     use function array_diff;
+    use function array_intersect;
     use function array_key_first;
     use function array_key_last;
     use function array_keys;
@@ -97,7 +98,7 @@ namespace eelib
         // https://www.php.net/manual/en/function.array-intersect.php - has no expectations
         public static function sameValues(array $array, array ...$arrays) : array
         {
-            return array_diff($array, $arrays);
+            return array_intersect($array, ...$arrays);
         }
 
         /**
