@@ -59,7 +59,7 @@ namespace Extended
                 use_include_path: $use_include_path,
                 offset:           $offset,
                 length:           $length
-            ) ?? '';
+            ) ?: '';
         }
 
         // public static function putContents() { file_put_contents(); }
