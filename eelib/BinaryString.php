@@ -41,7 +41,7 @@ namespace eelib
             string  $pattern,
             string  $string,
             int     $limit = -1
-        ) : string
+        ) : array
         {
             return \mb_split($pattern, $string, $limit);
         }
