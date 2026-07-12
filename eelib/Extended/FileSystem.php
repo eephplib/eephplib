@@ -80,10 +80,10 @@ namespace Extended
         {
             if (strpos($directory, __DIR__) !== 0) // do not without tests (IDE will suggest new function)
             {
-                throw new InvalidArgumentException("Must start with or be __DIR__ ");
+                throw new \InvalidArgumentException("Must start with or be __DIR__ ");
             }
 
-            return realpath($directory) ?: throw new Exception("Directory path does not exist");
+            return realpath($directory) ?: throw new \Exception("Directory path does not exist");
         }
 
 }
