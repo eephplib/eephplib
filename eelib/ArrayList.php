@@ -92,7 +92,7 @@ namespace eelib
         // https://www.php.net/manual/en/function.array-diff.php - has no expectations
         public static function differentValues(array $array, array ...$arrays) : array
         {
-            return array_diff($array, $arrays);
+            return array_diff($array, ...$arrays);
         }
         
         // https://www.php.net/manual/en/function.array-intersect.php - has no expectations
