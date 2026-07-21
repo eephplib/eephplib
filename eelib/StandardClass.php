@@ -54,7 +54,7 @@ namespace eelib
 
                 foreach ($parentClassList as $parentClass)  // TODO: can we move this array_merge out of the loop?
                 {
-                    $traits = array_merge($traits, class_uses($parentClassList, $autoload));
+                    $traits = array_merge($traits, class_uses($parentClass, $autoload));
                 }
             }
 
@@ -62,6 +62,8 @@ namespace eelib
             {
                 throw new RuntimeException('given class doesn\'t exist.');
             }
+
+            return $traits;
         }
     }
 }
