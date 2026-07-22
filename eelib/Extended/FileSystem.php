@@ -10,9 +10,14 @@ namespace Extended
     use function floor;
     use function implode;
     use function log;
+    use function realpath;
     use function round;
+    use function strpos;
 
     use const FILE_USE_INCLUDE_PATH;
+
+    use InvalidArgumentException;
+    use RuntimeException;
 
     /**
      * TODO: turn methods into traits
@@ -47,19 +52,28 @@ namespace Extended
         }
 
 
+        /**
+         * @throws RuntimeException When the file contents cannot be read.
+         */
         public static function getContents(
             string $filename,
             bool   $use_include_path = self::USE_INCLUDE_PATH,
             int    $offset           = 0,
-            int    $length           = null
+            ?int   $length           = null
         ):  string
         {
-            return file_get_contents(
+            $contents = file_get_contents(
                 filename:         $filename,
                 use_include_path: $use_include_path,
                 offset:           $offset,
                 length:           $length
-            ) ?? '';
+            );
+
+            if ($contents === false) {
+                throw new RuntimeException("Unable to read contents of file: $filename");
+            }
+
+            return $contents;
         }
 
         // public static function putContents() { file_put_contents(); }
@@ -83,7 +97,7 @@ namespace Extended
                 throw new InvalidArgumentException("Must start with or be __DIR__ ");
             }
 
-            return realpath($directory) ?: throw new Exception("Directory path does not exist");
+            return realpath($directory) ?: throw new RuntimeException("Directory path does not exist");
         }
 
 }
