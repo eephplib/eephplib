@@ -28,7 +28,7 @@ namespace eelib\Functions\BinaryString
             ?int    $length = NULL
         ) : int
         {
-            return \strspn($subject, $characters, $offset = 0, $length);
+            return \strspn($subject, $characters, $offset, $length);
         }
 
     }
