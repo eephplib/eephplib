@@ -4,6 +4,8 @@ namespace eelib {
 
     use \Exception;
 
+    use eelib\Support\Guard;
+
     /**
      * Class Superglobal
      * https://www.php.net/manual/en/reserved.variables.server.php
@@ -50,21 +52,21 @@ namespace eelib {
         // Essential for handling different types of HTTP requests properly.
         final public static function getRequestMethod()
         {
-            return $_SERVER['REQUEST_METHOD'] ?? throw new \Exception('$_SERVER[\'REQUEST_METHOD\'] does not exist');
+            return Guard::arrayKey($_SERVER, 'REQUEST_METHOD', '$_SERVER');
         }
 
         // The URI (path and query string) that was requested.
         // Useful for routing, URL parsing, and determining what resource was requested.
         final public static function getRequestUri()
         {
-            return $_SERVER['REQUEST_URI'] ?? throw new \Exception('$_SERVER[\'REQUEST_URI\'] does not exist');
+            return Guard::arrayKey($_SERVER, 'REQUEST_URI', '$_SERVER');
         }
 
         // The value of the Host header, typically containing the domain name.
         //Important for multi-domain applications and generating absolute URLs.
         final public static function getHttpHost()
         {
-            return $_SERVER['HTTP_HOST'] ?? throw new \Exception('$_SERVER[\'HTTP_HOST\'] does not exist');
+            return Guard::arrayKey($_SERVER, 'HTTP_HOST', '$_SERVER');
         }
 
         // Indicates whether the request was made over HTTPS.
@@ -72,14 +74,14 @@ namespace eelib {
         // Critical for security checks and protocol-aware redirects.
         final public static function getHttps()
         {
-            return $_SERVER['HTTPS'] ?? throw new \Exception('$_SERVER[\'HTTPS\'] does not exist');
+            return Guard::arrayKey($_SERVER, 'HTTPS', '$_SERVER');
         }
 
         // The IP address of the client making the request.
         // Commonly used for logging, security checks, geolocation, and rate limiting.
         final public static function getRemoteAddress()
         {
-            return $_SERVER['REMOTE_ADDR'] ?? throw new \Exception('$_SERVER[\'REMOTE_ADDR\'] does not exist');
+            return Guard::arrayKey($_SERVER, 'REMOTE_ADDR', '$_SERVER');
         }
     }
 }
