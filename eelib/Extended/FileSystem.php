@@ -6,6 +6,8 @@ namespace Extended
     require_once 'FileSystem/CsvFileToAssocArray.php';
     require_once 'FileSystem/ScanDirectory.php';
 
+    use eelib\Support\Guard;
+
     use function file_get_contents;
     use function floor;
     use function implode;
@@ -83,7 +85,7 @@ namespace Extended
                 throw new InvalidArgumentException("Must start with or be __DIR__ ");
             }
 
-            return realpath($directory) ?: throw new Exception("Directory path does not exist");
+            return Guard::truthy(realpath($directory), "Directory path does not exist");
         }
 
 }

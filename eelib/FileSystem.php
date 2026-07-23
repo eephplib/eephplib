@@ -4,6 +4,8 @@ namespace eelib
 {
     use function \file_exists;
 
+    use eelib\Support\Guard;
+
     require_once 'Extended/FileSystem.php';
 
     /**
@@ -21,7 +23,7 @@ namespace eelib
         function getCurrentWorkingDirectory()
         {
             // this might need to be a parameter (requires testing for confirmation)
-            return getcwd() ?: throw new \Exception("getcwd() returned false and NOT <string>");
+            return Guard::truthy(getcwd(), "getcwd() returned false and NOT <string>");
         }
 
         /**
