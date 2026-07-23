@@ -66,3 +66,7 @@ Temporary Items
 composer.phar
 composer.lock
 /vendor/
+
+# PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
