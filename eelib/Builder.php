@@ -60,5 +60,4 @@ class Builder
     }
 }
 
-
-Builder::String('test')->regular_expression_split();
+//Builder::String('test')->regular_expression_split();
