@@ -61,9 +61,9 @@ namespace eelib
          * Returns the first key of array if the array is not empty; NULL otherwise.
          *
          * @link http://php.net/manual/en/function.array-key-first.php
-         * @return  mixed|null      
+         * @return  int|string|null      
          */
-        public static function firstKey(array $array) : ?array
+        public static function firstKey(array $array) : int|string|null
         {
             if (function_exists('array_key_first') === TRUE)
             {
